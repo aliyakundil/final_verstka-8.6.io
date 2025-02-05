@@ -12,7 +12,11 @@ module.exports = {
   // Output file
   output: {
     filename: './js/bundle.js',
-    path: path.resolve(__dirname, 'dist') // Add output path
+    path: path.resolve(__dirname, 'dist'), // Add output path
+  },
+
+  optimization: {
+    minimize: false, // ОТКЛЮЧИТЬ минификацию
   },
 
   // Source maps for easier debugging
@@ -44,6 +48,12 @@ module.exports = {
         ],
       },
 
+      //  Compile CSS
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },    
+
       // Include fonts from css
       {
         test: /\.(eot|ttf|woff|woff2)$/,
@@ -68,6 +78,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Webpack 5 Starter',
       template: './src/index.html',
+      filename: 'index.html',        // Имя файла, который будет сгенерирован
       inject: true,
       minify: {
         removeComments: true,
@@ -86,6 +97,14 @@ module.exports = {
         {
           from: './src/img',
           to: 'img',
+        },
+        {
+          from: './src/svg',
+          to: 'svg',
+        },
+        {
+          from: path.resolve(__dirname, "src/scss"), // ❗️ SCSS копировать не нужно, его надо компилировать
+          to: "css",
         },
       ]
     })
