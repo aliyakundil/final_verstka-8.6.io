@@ -8,8 +8,8 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- <link rel="stylesheet" type="text/css" href="./scss/style.css">
-    <link rel="stylesheet" type="text/css" href="./scss/adaptive.css"> -->
-    <!-- <link rel="stylesheet" href="./css/swiper-bundle.css"/> -->
+    <link rel="stylesheet" type="text/css" href="./scss/adaptive.css"> 
+     <link rel="stylesheet" href="./css/swiper-bundle.css"/> -->
     <title>Final verstka</title>
   </head>
   <body>
@@ -74,13 +74,13 @@
 
           <div class="contact">
               <div class="contact__phone">
-                  <button class="icon contact__icon" type="button">
+                  <button class="icon contact__cel-phone" type="button">
                       <img src="./svg/chat copy.svg">
                   </button>
-                  <button class="icon contact__icon" type="button">
+                  <button class="icon contact__chat" type="button">
                       <img src="./svg/chat.svg">
                   </button>
-                  <button class="icon contact__icon" type="button">
+                  <button class="icon contact__employee" type="button">
                       <img src="./svg/profile.svg">
                   </button>
               </div>
@@ -99,6 +99,55 @@
           </div>
       </div>
   </aside>
+
+  <div class="feedback__button">  <!-- mobile__menu--> 
+    <div class="feedback__header">
+      <button class="icon icon--burger" type="button">
+        <img src="./svg/burger.svg" alt="" class="burger feedback__burger">
+      </button>
+    </div>
+    <div class="main__title-name feedback__title">
+      Обратная связь
+    </div>
+    <div class="feedback__form">
+      <input type="text" placeholder="Имя" name="name" class="feedback__form--name">
+      <input type="text" placeholder="Телефон" name="phone" class="feedback__form--phone">
+      <input type="email" placeholder="Электронная почта" name="email" class="feedback__form--email">
+      <input type="text" placeholder="Сообщение" name="message" class="feedback__form--message">
+    </div>
+    <div class="feedback__instruction">
+      Нажимая “отправить”, вы даете согласие на <span class="feedback__instruction--pink">обработку персональных данных</span> 
+      и соглашаетесь с нашей <span class="feedback__instruction--pink">политикой конфиденциальности</span>
+    </div>
+    <div class="feedback__button--send">
+      <button class="send">
+        <img src="./svg/send.svg" alt="" class="send">
+      </button>
+    </div>
+  </div>
+
+  <div class="feedback__button feedback__button--order-call">  <!-- mobile__menu--> 
+    <div class="feedback__header">
+      <button class="icon icon--burger" type="button">
+        <img src="./svg/burger.svg" alt="" class="burger feedback__burger--order-call">
+      </button>
+    </div>
+    <div class="main__title-name feedback__title">
+      Заказать звонок
+    </div>
+    <div class="feedback__form">
+      <input type="text" placeholder="Телефон" name="phone" class="feedback__form--phone">
+    </div>
+    <div class="feedback__instruction">
+      Нажимая “отправить”, вы даете согласие на <span class="feedback__instruction--pink">обработку персональных данных</span> 
+      и соглашаетесь с нашей <span class="feedback__instruction--pink">политикой конфиденциальности</span>
+    </div>
+    <div class="feedback__button--send">
+      <button class="send">
+        <img src="./svg/send.svg" alt="" class="send">
+      </button>
+    </div>
+  </div>
 
   <main>
       <div class="main__title">
@@ -365,11 +414,35 @@
               <div class="price-cell"><img src="./img/Group 10.svg" alt=""></div>
           </div>
       </div>
-      
-      <div class="main__text price_text">
-          Все цены указаны с учетом НДС. Стоимость ремонта указана на единичную услугу. 
-          Для получения коммерческого предложения на постоянное обслуживание, оставьте заявку.
+
+      <div class="about__price">
+        <div class="main__text price_text">
+            Все цены указаны с учетом НДС. Стоимость ремонта указана на единичную услугу. 
+            Для получения коммерческого предложения на постоянное обслуживание, оставьте заявку.
+        </div>
+
+        <div class="text__next">
+            <button class="button__next">
+                Получить коммерческое предложение
+                <img src="./svg/more.svg">
+            </button>
+        </div>
       </div>
+
+      <footer>
+        <div class="footer">
+            <div class="title_price title_price__footer_start">
+                © 2019 CPS
+                <br>Разработано командой Apesong
+            </div>
+            <div class="title_price title_price__footer_center">
+                Политика конфиденциальности
+            </div>
+            <div class="title_price title_price__footer_end">
+                Информация, размещенная на данной странице, не является публичной офертой
+            </div>
+        </div>
+      </footer>
 
   </main>
 

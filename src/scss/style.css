@@ -8,11 +8,6 @@
     font-style: normal;
 }
 
-* {
-    margin: 0;
-    padding: 0;  
-}
-
 body {
     font-family: 'TT Lakes Regular', Arial, sans-serif;
     max-width: 0 auto;
@@ -142,6 +137,7 @@ button {
 
 .text__next {
     font-weight: bold;
+    display: flex;
 }
 
 
@@ -155,7 +151,7 @@ button {
 
 aside {
     width: 320px;
-    box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2); 
+    /* box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2);  */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -200,7 +196,7 @@ aside {
     display: flex;
     flex-direction: column;
     width: 222px;
-    height: 85%;
+    /* height: 85%; */
     /* margin-left: 30px; */
     padding-bottom: 20px;
 }
@@ -227,7 +223,7 @@ aside {
     flex-direction: row;
 }
 
-.contact__icon {
+.icon {
     margin-right: 15px;
 }
 
@@ -348,5 +344,103 @@ header, main {
 }
 
 .price_text {
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.footer {
+    border-top: 2px solid #D9FFF5;
+    display: grid;
+    grid-template-columns: repeat(1, 320px);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about__price {
+    margin-bottom: 40px;
+}
+
+.title_price__footer_start, .title_price__footer_center, .title_price__footer_end {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.feedback__header {
+    margin: 5% 0 0 5%;
+    display: flex;
+    /* justify-content: flex-end; */
+}
+
+.feedback__button {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    height: 100vh;
+    font-family: 'TT Lakes Thin', Arial, sans-serif;
+    font-size: 16px;
+
+    position: fixed;
+    top: 0;
+    right: -320px !important; /* Скрыть меню за пределами экрана */
+    width: 320px;
+    height: 100%;
+    background-color: white;
+    overflow: hidden;
+    transition: right 0.3s ease-in-out; /* Анимация выдвижения */
+    z-index: 1000;
+}
+
+.feedback__header {
+    margin-top: 20px;
+}
+
+.feedback__title {
+    margin-bottom: 20px;
+}
+
+.feedback__form {
+    display: flex;
+    flex-direction: column;
+    width: 304px;
+    margin-left: 5%;
+}
+
+input {
+    /* width: 288px; */
+    width: 288px;
+    height: 48px;
+    font-family: 'TT Lakes Regular', Arial, sans-serif;
+    size: 16px;
+    margin-bottom: 15px;
+    border: 2px solid #EAEAEA;
+}
+
+.feedback__form--message {
+    height: 118px;
+    text-align: start; /* Выравниваем текст по левому верхнему краю */
+    padding-top: 15px; /* Смещаем текст вверх */
+}
+
+.feedback__instruction {
+    justify-content: flex-start;
+    font-size: 14px;
+    font-family: 'TT Lakes Regular', Arial, sans-serif;
+    color: #7E7E82;
+    margin-left: 5%;
+}
+
+.feedback__instruction--pink {
+    color: #FF3E79;
+}
+
+.feedback__button--send {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+.feedback__button.open {
+    right: 0 !important; /* Меню выдвигается на экран */
 }

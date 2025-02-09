@@ -1,8 +1,11 @@
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle'; // Подключение стилей
+
 const menuButton = document.querySelector('.button--menu');
 const menu = document.querySelector('.mobile__menu');
 const menuButtonClose = document.querySelector('.burger');
 
-menuButton.addEventListener('click', () => {
+menuButton.addEventListener('click', (event) => {
     event.stopPropagation();
     menu.classList.toggle('open'); // Переключение класса "open" у меню
 });
@@ -109,4 +112,52 @@ buttonVid.addEventListener('click', () => {
         buttonVid.textContent = 'Показать все';
         imageVid.src = './img/expand.svg'; // Старый путь
     }
+});
+
+
+const menuButtonCall = document.querySelector(".contact__chat");
+const menuFeedback = document.querySelector(".feedback__button");
+const menuButtonCloseFeedback = document.querySelector('.feedback__burger');
+
+menuButtonCall.addEventListener('click', (event) => {
+    event.stopPropagation();
+    menuFeedback.classList.toggle('open'); // Переключение класса "open" у меню
+});
+
+document.addEventListener('click', (event) => {
+    const isClickInsideMenu = menuFeedback.contains(event.target); 
+    const isClickOnButton = menuButtonCloseFeedback.contains(event.target); 
+
+    if (!isClickInsideMenu && !isClickOnButton)  {
+        menuFeedback.classList.remove('open');
+    }
+    
+    if (isClickOnButton) {
+        menuFeedback.classList.remove('open'); 
+    }
+    
+});
+
+
+const menuButtonOrderCall = document.querySelector(".contact__cel-phone");
+const menuFeedbackOrderCall = document.querySelector(".feedback__button--order-call");
+const menuButtonCloseFeedbackCall = document.querySelector('.feedback__burger--order-call');
+
+menuButtonOrderCall.addEventListener('click', (event) => {
+    event.stopPropagation();
+    menuFeedbackOrderCall.classList.toggle('open'); // Переключение класса "open" у меню
+});
+
+document.addEventListener('click', (event) => {
+    const isClickInsideMenuOrderCall = menuFeedbackOrderCall.contains(event.target); 
+    const isClickOnButtonOrderCall = menuButtonCloseFeedbackCall.contains(event.target); 
+
+    if (!isClickInsideMenuOrderCall && !isClickOnButtonOrderCall)  {
+        menuFeedbackOrderCall.classList.remove('open');
+        }
+    
+    if (isClickOnButtonOrderCall) {
+        menuFeedbackOrderCall.classList.remove('open'); 
+    }
+    
 });

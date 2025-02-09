@@ -40,6 +40,12 @@ header {
         padding-top: 5%;
     }
 
+    .main__menu {
+        display: flex;
+        flex-direction: column;
+        height: 85%;
+    }
+
     .header__block--contact_settings {
         display: flex;
         justify-content: flex-end;
@@ -167,9 +173,32 @@ header {
         border-top: 1px solid #7E7E82;
     }   
 
+    .price_text {
+        margin: 0;
+        padding: 0;
+        width: 420px;
+        height: 60px;
+        padding-bottom: 40px;
+    }
+
+    .footer {
+        border-top: 2px solid #D9FFF5;
+        display: grid;
+        grid-template-columns: repeat(3, 215px);
+        justify-content: space-between;
+    }
+
+    .title_price__footer_start {
+        text-align: start;
+    }
+
+    .title_price__footer_end {
+        text-align: end;
+    }
+
 }
 
-@media only screen and (min-width: 1120px) {
+@media only screen and (min-width: 1140px) {
     body {
         width: 100%;
         margin: 0;
@@ -178,6 +207,27 @@ header {
     }
     
     header {
+        display: none;
+    }
+
+    main {
+        margin-left: 280px; /* Отступ слева, чтобы контент не перекрывал aside */
+        padding: 20px;
+    }
+
+    .mobile__menu {
+        /* position: relative; */
+        float: left;
+        top: 0;
+        left: 0;
+        width: 250px; 
+        max-height: 900px; 
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+    .burger {
         display: none;
     }
 
@@ -279,5 +329,45 @@ header {
 
     .price{
         display: none !important;
+    }
+
+    .price_text {
+        margin: 0;
+        padding: 0;
+        width: 420px;
+        height: 60px;
+        padding-bottom: 40px;
+    }
+
+    .footer {
+        border-top: 2px solid #D9FFF5;
+        display: grid;
+        grid-template-columns: repeat(3, 330px);
+        justify-content: space-between;
+    }
+
+    .title_price__footer_start {
+        text-align: start;
+    }
+
+    .title_price__footer_end {
+        text-align: end;
+    }
+
+    .feedback__burger--order-call, .feedback__burger {
+        display: block;
+    }
+
+    .feedback__button {
+        width: 440px;
+        right: -440px !important;
+    }
+
+    .feedback__form {
+        width: 100%;
+    }
+
+    input {
+        width: 376px !important;
     }
 }

@@ -372,6 +372,7 @@
     "strip-outer": "^1.0.1",
     "supports-color": "^5.5.0",
     "supports-preserve-symlinks-flag": "^1.0.0",
+    "swiper": "^11.2.2",
     "tapable": "^2.2.1",
     "terser": "^5.31.6",
     "terser-webpack-plugin": "^5.3.10",
