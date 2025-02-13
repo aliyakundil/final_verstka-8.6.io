@@ -99,10 +99,6 @@ module.exports = {
           to: 'img',
         },
         {
-          from: './src/svg',
-          to: 'svg',
-        },
-        {
           from: path.resolve(__dirname, "src/scss"), // ❗️ SCSS копировать не нужно, его надо компилировать
           to: "css",
         },

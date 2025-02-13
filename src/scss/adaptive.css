@@ -88,7 +88,7 @@ header {
     }
 
     .button--menu::after, .header__block--contact::after {
-        content: url("../svg/divider.svg");
+        content: url("../img/divider.svg");
         display: inline-flex;
         align-items: center;
         flex-direction: row;

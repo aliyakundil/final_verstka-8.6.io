@@ -53,7 +53,7 @@ header {
 }
 
 .header__menu--icon::after {
-  content: url("../svg/divider.svg");
+  content: url("../img/divider.svg");
   display: flex;
   width: 2px;
   height: 32px;
@@ -517,7 +517,7 @@ header {
     display: none;
   }
   .button--menu::after, .header__block--contact::after {
-    content: url("../svg/divider.svg");
+    content: url("../img/divider.svg");
     display: inline-flex;
     align-items: center;
     flex-direction: row;
