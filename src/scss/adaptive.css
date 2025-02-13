@@ -30,14 +30,14 @@ header {
     body {
         min-width: 768px; 
     }
+
+    main {
+        padding: 20px;
+    }
     
     header {
         padding-top: 3%;
         padding-bottom: 3%;
-    }
-    
-    main {
-        padding-top: 5%;
     }
 
     .main__menu {
@@ -110,9 +110,6 @@ header {
         grid-template-columns: repeat(3, 1fr);
         grid-auto-columns: auto;
         transform: none !important; 
-        /*Свойство transform в CSS позволяет применять 2D или 3D трансформации к элементу, 
-        такие как перемещение, масштабирование, вращение, наклон и многое другое. 
-        Оно изменяет визуальное представление элемента, не затрагивая его поток на странице (не влияет на соседние элементы).*/
         grid-auto-rows: 100px;
     }
 
@@ -212,16 +209,14 @@ header {
 
     main {
         margin-left: 280px; /* Отступ слева, чтобы контент не перекрывал aside */
-        padding: 20px;
+        padding: 40px;
     }
 
     .mobile__menu {
-        /* position: relative; */
         float: left;
         top: 0;
         left: 0;
         width: 250px; 
-        max-height: 900px; 
         padding: 20px;
         display: flex;
         flex-direction: column;

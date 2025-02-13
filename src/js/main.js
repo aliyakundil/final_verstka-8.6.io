@@ -4,39 +4,37 @@ import 'swiper/css/bundle'; // Подключение стилей
 const menuButton = document.querySelector('.button--menu');
 const menu = document.querySelector('.mobile__menu');
 const menuButtonClose = document.querySelector('.burger');
+const pageContentHeader = document.querySelector('header');
+const pageContentMain = document.querySelector('main');
 
 menuButton.addEventListener('click', (event) => {
     event.stopPropagation();
     menu.classList.toggle('open'); // Переключение класса "open" у меню
+    pageContentHeader.style.filter = 'blur(5px)'; //Размытость
+    pageContentMain.style.filter = 'blur(5px)'; 
 });
 
 document.addEventListener('click', (event) => {
 const isClickInsideMenu = menu.contains(event.target); // Проверяем, было ли нажатие внутри меню
 const isClickOnButton = menuButtonClose.contains(event.target); // Или на кнопке
 
-/*event — это объект, который содержит информацию о произошедшем событии (например, клик мыши, нажатие клавиши, перемещение курсора и т. д.).*/
-
-/*event.type	Тип события (например, "click", "keydown")
-event.target	Элемент, на котором произошло событие
-event.clientX / event.clientY	Координаты курсора при событии
-event.preventDefault()	Отменяет действие по умолчанию (например, отмена отправки формы)
-event.stopPropagation()	Останавливает всплытие события вверх по DOM*/
-
 if (!isClickInsideMenu && !isClickOnButton)  {
         menu.classList.remove('open'); // Закрываем меню, если клик был вне его
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = '';
     }
 
     if (isClickOnButton) {
         menu.classList.remove('open'); // Закрываем меню, если клик был на кнопке "закрыть"
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = '';
     }
 
 });
 
 const swiper = new Swiper('.swiper', {
-    // цикличный слайдер
     loop: true,
 
-    // If we need pagination
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -68,18 +66,14 @@ button.addEventListener('click', () => {
 });
 
 
-// Получаем кнопку и контейнер текста
-const buttonText = document.querySelector('.text__next'); //вызов через класс
+const buttonText = document.querySelector('.text__next'); 
 const textContainer = document.querySelector('.main__text');
 const imageText = document.querySelector('.expand');
 
-// Добавляем обработчик клика для контейнера текста
 buttonText.addEventListener('click', () => {
-    // Переключаем класс expanded
     textContainer.classList.toggle('expanded');
     
             
-    // Меняем текст кнопки в зависимости от состояния
     if (textContainer.classList.contains('expanded')) {
         buttonText.textContent = 'Скрыть';
         imageText.src = './img/expand_.svg'; // Новый путь к рисунку
@@ -98,54 +92,72 @@ const swiperWrapperVid = document.querySelector('.swiper-title');
 const imageVid = document.querySelector('.expand');
 
         
-// Добавляем обработчик клика
 buttonVid.addEventListener('click', () => {
-    // Переключаем класс expanded
     swiperWrapperVid.classList.toggle('expanded');
 
         
-    // Меняем текст кнопки в зависимости от состояния
     if (swiperWrapperVid.classList.contains('expanded')) {
         buttonVid.textContent = 'Скрыть';
-        imageVid.src = './img/expand_.svg'; // Новый путь к рисунку
+        imageVid.src = './img/expand_.svg'; 
     } else {
         buttonVid.textContent = 'Показать все';
-        imageVid.src = './img/expand.svg'; // Старый путь
+        imageVid.src = './img/expand.svg'; 
     }
 });
+
+
 
 
 const menuButtonCall = document.querySelector(".contact__chat");
 const menuFeedback = document.querySelector(".feedback__button");
 const menuButtonCloseFeedback = document.querySelector('.feedback__burger');
 
+const menuButtonOrderCall = document.querySelector(".contact__cel-phone");
+const menuFeedbackOrderCall = document.querySelector(".feedback__button--order-call");
+const menuButtonCloseFeedbackCall = document.querySelector('.feedback__burger--order-call');
 menuButtonCall.addEventListener('click', (event) => {
     event.stopPropagation();
+    menuFeedbackOrderCall.classList.remove("open");
     menuFeedback.classList.toggle('open'); // Переключение класса "open" у меню
+    if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
+        pageContentHeader.style.filter = 'blur(5px)';
+        pageContentMain.style.filter = 'blur(5px)'; 
+    } else {
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
+    }
 });
 
 document.addEventListener('click', (event) => {
     const isClickInsideMenu = menuFeedback.contains(event.target); 
     const isClickOnButton = menuButtonCloseFeedback.contains(event.target); 
 
-    if (!isClickInsideMenu && !isClickOnButton)  {
+    if (isClickInsideMenu && !isClickOnButton)  {
         menuFeedback.classList.remove('open');
+        menuFeedbackOrderCall.classList.remove("open");
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
     }
-    
     if (isClickOnButton) {
         menuFeedback.classList.remove('open'); 
+        menuFeedbackOrderCall.classList.remove("open");
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
     }
-    
 });
 
 
-const menuButtonOrderCall = document.querySelector(".contact__cel-phone");
-const menuFeedbackOrderCall = document.querySelector(".feedback__button--order-call");
-const menuButtonCloseFeedbackCall = document.querySelector('.feedback__burger--order-call');
-
 menuButtonOrderCall.addEventListener('click', (event) => {
     event.stopPropagation();
-    menuFeedbackOrderCall.classList.toggle('open'); // Переключение класса "open" у меню
+    menuFeedbackOrderCall.classList.toggle('open'); 
+    menuFeedback.classList.remove('open'); 
+    if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
+        pageContentHeader.style.filter = 'blur(5px)';
+        pageContentMain.style.filter = 'blur(5px)'; 
+    } else {
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
+    }
 });
 
 document.addEventListener('click', (event) => {
@@ -154,10 +166,15 @@ document.addEventListener('click', (event) => {
 
     if (!isClickInsideMenuOrderCall && !isClickOnButtonOrderCall)  {
         menuFeedbackOrderCall.classList.remove('open');
+        menuFeedback.classList.remove('open'); 
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
         }
     
     if (isClickOnButtonOrderCall) {
         menuFeedbackOrderCall.classList.remove('open'); 
+        menuFeedback.classList.remove('open'); 
+        pageContentHeader.style.filter = '';
     }
     
 });
