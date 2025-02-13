@@ -61,7 +61,7 @@ header {
 }
 
 .header__menu--icon::after {
-  content: url("../svg/divider.svg");
+  content: url("../img/divider.svg");
   display: flex;
   width: 2px;
   height: 32px;
@@ -133,7 +133,6 @@ header {
   margin-top: 30px;
   padding-left: 5%;
   flex-direction: row;
-  /* align-items: center; */
 }
 
 .main__img {
@@ -167,7 +166,6 @@ button {
 
 aside {
   width: 320px;
-  /* box-shadow: 20px 0 20px rgba(0, 0, 0, 0.2);  */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -212,9 +210,9 @@ aside {
   display: flex;
   flex-direction: column;
   width: 222px;
-  /* height: 85%; */
-  /* margin-left: 30px; */
   padding-bottom: 20px;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 .menu__navigator {
@@ -229,7 +227,7 @@ aside {
 .contact {
   display: flex;
   flex-direction: column;
-  margin-top: auto;
+  // margin-top: auto;
   gap: 10px;
   margin-left: 30px; 
 }
@@ -253,6 +251,7 @@ aside {
   flex-direction: row;
   margin-top: 30px;
   margin-left: 30px; 
+  margin: 0;
 }
 
 .lang__item {
@@ -325,14 +324,19 @@ header, main {
   color: black;
 }
 
-.swiper {
-  /* height: 100px; */
-  margin-top: 40px;
+.title {
+  margin-top: 10px;
 }
 
-.swiper-wrapper {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.swiper {
+  padding-top: 20px;
+  height: 200px;
+  width: auto;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: auto; 
 }
 
 .toggle-button {
@@ -355,9 +359,9 @@ header, main {
   font-weight: bold;
 }
 
-.swiper-pagination {
-  padding-top: 50px;
-}
+// .swiper-pagination {
+//   padding-top: 50px;
+// }
 
 .price_text {
   margin: 0;
@@ -500,15 +504,15 @@ header {
       padding-top: 3%;
       padding-bottom: 3%;
   }
-  
-  main {
-      padding-top: 5%;
-  }
 
+  main {
+    padding: 20px;
+  }
+  
   .main__menu {
       display: flex;
       flex-direction: column;
-      height: 85%;
+      height: 90%;
   }
 
   .header__block--contact_settings {
@@ -553,7 +557,7 @@ header {
   }
 
   .button--menu::after, .header__block--contact::after {
-      content: url("../svg/divider.svg");
+      content: url("../img/divider.svg");
       display: inline-flex;
       align-items: center;
       flex-direction: row;
@@ -575,9 +579,6 @@ header {
       grid-template-columns: repeat(3, 1fr);
       grid-auto-columns: auto;
       transform: none !important; 
-      /*Свойство transform в CSS позволяет применять 2D или 3D трансформации к элементу, 
-      такие как перемещение, масштабирование, вращение, наклон и многое другое. 
-      Оно изменяет визуальное представление элемента, не затрагивая его поток на странице (не влияет на соседние элементы).*/
       grid-auto-rows: 100px;
   }
 
@@ -681,12 +682,10 @@ header {
   }
 
   .mobile__menu {
-      /* position: relative; */
       float: left;
       top: 0;
       left: 0;
       width: 250px; 
-      max-height: 900px; 
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -694,6 +693,15 @@ header {
 
   .burger {
       display: none;
+  }
+
+  .main__menu {
+    display: flex;
+    flex-direction: column;
+    // width: 222px;
+    // padding-bottom: 20px;
+    justify-content: space-between;
+    height: 1000%;
   }
 
   .main__text {
