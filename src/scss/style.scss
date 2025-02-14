@@ -310,13 +310,13 @@ header, main {
   font-size: 16px;
   line-height: 24px;
   color: #7E7E82;
+  padding: 20px 0 20px 0;
 }
 
 .title_price {
   font-size: 14px;
   line-height: 24px;
   color: #7E7E82;
-  margin-top: 50px;
 }
 
 .text_price {
@@ -330,14 +330,9 @@ header, main {
 }
 
 .swiper {
-  // padding-top: 20px;
-  height: 200px;
+  position: relative;
   width: auto;
-}
-
-.swiper-slide {
-  flex-shrink: 0;
-  width: auto; 
+  padding-bottom: 40px; 
 }
 
 .toggle-button {
@@ -358,10 +353,6 @@ header, main {
   line-height: 24px;
   color: #7E7E82;
   font-weight: bold;
-}
-
-.swiper--price .swiper-pagination {
-  margin-top: 150px;
 }
 
 .price_text {
@@ -391,7 +382,6 @@ header, main {
 .feedback__header {
   margin: 5% 0 0 5%;
   display: flex;
-  /* justify-content: flex-end; */
 }
 
 .feedback__button {
@@ -430,7 +420,6 @@ header, main {
 }
 
 input {
-  /* width: 288px; */
   width: 288px;
   height: 48px;
   font-family: 'TT Lakes Regular', Arial, sans-serif;

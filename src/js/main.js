@@ -1,5 +1,5 @@
 import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle'; // Подключение стилей
+import 'swiper/css/bundle';
 
 const menuButton = document.querySelector('.button--menu');
 const menu = document.querySelector('.mobile__menu');
@@ -9,7 +9,7 @@ const pageContentMain = document.querySelector('main');
 
 menuButton.addEventListener('click', (event) => {
     event.stopPropagation();
-    menu.classList.toggle('open'); // Переключение класса "open" у меню
+    menu.classList.toggle('open'); 
     pageContentHeader.style.filter = 'blur(5px)'; //Размытость
     pageContentMain.style.filter = 'blur(5px)'; 
 });
@@ -19,13 +19,13 @@ const isClickInsideMenu = menu.contains(event.target); // Проверяем, б
 const isClickOnButton = menuButtonClose.contains(event.target); // Или на кнопке
 
 if (!isClickInsideMenu && !isClickOnButton)  {
-        menu.classList.remove('open'); // Закрываем меню, если клик был вне его
+        menu.classList.remove('open'); 
         pageContentHeader.style.filter = '';
         pageContentMain.style.filter = '';
     }
 
     if (isClickOnButton) {
-        menu.classList.remove('open'); // Закрываем меню, если клик был на кнопке "закрыть"
+        menu.classList.remove('open'); 
         pageContentHeader.style.filter = '';
         pageContentMain.style.filter = '';
     }
@@ -42,29 +42,23 @@ const swiper = new Swiper('.swiper', {
 
 });
 
-
 // Получаем кнопку и контейнер слайдов 
 const button = document.querySelector('.toggle-button'); //вызов через класс
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 const image = document.querySelector('.expand');
-
         
-// Добавляем обработчик клика
+// обработчик клика
 button.addEventListener('click', () => {
-    // Переключаем класс expanded
     swiperWrapper.classList.toggle('expanded');
 
-        
-    // Меняем текст кнопки в зависимости от состояния
     if (swiperWrapper.classList.contains('expanded')) {
         button.textContent = 'Скрыть';
-        image.src = './img/expand_.svg'; // Новый путь к рисунку
+        image.src = './img/expand_.svg'; 
     } else {
         button.textContent = 'Показать все';
-        image.src = './img/expand.svg'; // Старый путь
+        image.src = './img/expand.svg'; 
     }
 });
-
 
 const buttonText = document.querySelector('.text__next'); 
 const textContainer = document.querySelector('.main__text');
@@ -76,15 +70,12 @@ buttonText.addEventListener('click', () => {
             
     if (textContainer.classList.contains('expanded')) {
         buttonText.textContent = 'Скрыть';
-        imageText.src = './img/expand_.svg'; // Новый путь к рисунку
+        imageText.src = './img/expand_.svg';
     } else {
         buttonText.textContent = 'Читать далее';
-        imageText.src = './img/expand.svg'; // Старый путь
+        imageText.src = './img/expand.svg'; 
     }
 });
-
-
-
 
 // Контейнер "Ремонт различных видов техники"
 const buttonVid = document.querySelector('.toggle-button__vid'); 
@@ -111,14 +102,32 @@ buttonVid.addEventListener('click', () => {
 const menuButtonCall = document.querySelector(".contact__chat");
 const menuFeedback = document.querySelector(".feedback__button");
 const menuButtonCloseFeedback = document.querySelector('.feedback__burger');
+const menuButtonCallHeader = document.querySelector(".button--chat");
 
 const menuButtonOrderCall = document.querySelector(".contact__cel-phone");
 const menuFeedbackOrderCall = document.querySelector(".feedback__button--order-call");
 const menuButtonCloseFeedbackCall = document.querySelector('.feedback__burger--order-call');
+const menuButtonOrderCallHeader = document.querySelector(".button--call");
+
 menuButtonCall.addEventListener('click', (event) => {
     event.stopPropagation();
     menuFeedbackOrderCall.classList.remove("open");
     menuFeedback.classList.toggle('open'); // Переключение класса "open" у меню
+    
+    if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
+        pageContentHeader.style.filter = 'blur(5px)';
+        pageContentMain.style.filter = 'blur(5px)'; 
+    } else {
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
+    }
+});
+
+
+menuButtonCallHeader.addEventListener('click', (event) => {
+    event.stopPropagation();
+    menuFeedbackOrderCall.classList.remove("open");
+    menuFeedback.classList.toggle('open'); 
     if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
         pageContentHeader.style.filter = 'blur(5px)';
         pageContentMain.style.filter = 'blur(5px)'; 
@@ -132,18 +141,14 @@ document.addEventListener('click', (event) => {
     const isClickInsideMenu = menuFeedback.contains(event.target); 
     const isClickOnButton = menuButtonCloseFeedback.contains(event.target); 
 
-    if (isClickInsideMenu && !isClickOnButton)  {
+    if (!isClickInsideMenu || isClickOnButton) {
         menuFeedback.classList.remove('open');
         menuFeedbackOrderCall.classList.remove("open");
-        pageContentHeader.style.filter = '';
-        pageContentMain.style.filter = ''; 
     }
-    if (isClickOnButton) {
-        menuFeedback.classList.remove('open'); 
-        menuFeedbackOrderCall.classList.remove("open");
-        pageContentHeader.style.filter = '';
-        pageContentMain.style.filter = ''; 
-    }
+});
+
+menuFeedback.addEventListener('click', (event) => {
+    event.stopPropagation(); 
 });
 
 
@@ -160,6 +165,27 @@ menuButtonOrderCall.addEventListener('click', (event) => {
     }
 });
 
+menuFeedbackOrderCall.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+});
+
+menuButtonOrderCallHeader.addEventListener('click', (event) => {
+    event.stopPropagation();
+    menuFeedbackOrderCall.classList.toggle('open'); 
+    menuFeedback.classList.remove('open'); 
+    if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
+        pageContentHeader.style.filter = 'blur(5px)';
+        pageContentMain.style.filter = 'blur(5px)'; 
+    } else {
+        pageContentHeader.style.filter = '';
+        pageContentMain.style.filter = ''; 
+    }
+});
+
+menuFeedbackOrderCallHeader.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+});
+
 document.addEventListener('click', (event) => {
     const isClickInsideMenuOrderCall = menuFeedbackOrderCall.contains(event.target); 
     const isClickOnButtonOrderCall = menuButtonCloseFeedbackCall.contains(event.target); 
@@ -167,14 +193,14 @@ document.addEventListener('click', (event) => {
     if (!isClickInsideMenuOrderCall && !isClickOnButtonOrderCall)  {
         menuFeedbackOrderCall.classList.remove('open');
         menuFeedback.classList.remove('open'); 
-        pageContentHeader.style.filter = '';
-        pageContentMain.style.filter = ''; 
+        // pageContentHeader.style.filter = '';
+        // pageContentMain.style.filter = ''; 
         }
     
     if (isClickOnButtonOrderCall) {
         menuFeedbackOrderCall.classList.remove('open'); 
         menuFeedback.classList.remove('open'); 
-        pageContentHeader.style.filter = '';
+        // pageContentHeader.style.filter = '';
     }
     
 });
