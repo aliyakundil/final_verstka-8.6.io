@@ -330,9 +330,19 @@ header, main {
 }
 
 .swiper {
-  position: relative;
   width: auto;
-  padding-bottom: 40px; 
+}
+
+.swiper--remont {
+  height: 200px;
+}
+
+.swiper--remont-technique {
+  height: 280px;
+}
+
+.swiper--price {
+  height: 300px;
 }
 
 .toggle-button {
