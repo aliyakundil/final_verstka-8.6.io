@@ -20989,34 +20989,7 @@ var swiper_bundle_update = injectStylesIntoStyleTag_default()(swiper_bundle/* de
 
 ;// ./src/js/main.js
 
- // Подключение стилей
 
-const menuButton = document.querySelector('.button--menu');
-const menu = document.querySelector('.mobile__menu');
-const menuButtonClose = document.querySelector('.burger');
-const pageContentHeader = document.querySelector('header');
-const pageContentMain = document.querySelector('main');
-menuButton.addEventListener('click', event => {
-  event.stopPropagation();
-  menu.classList.toggle('open'); // Переключение класса "open" у меню
-  pageContentHeader.style.filter = 'blur(5px)'; //Размытость
-  pageContentMain.style.filter = 'blur(5px)';
-});
-document.addEventListener('click', event => {
-  const isClickInsideMenu = menu.contains(event.target); // Проверяем, было ли нажатие внутри меню
-  const isClickOnButton = menuButtonClose.contains(event.target); // Или на кнопке
-
-  if (!isClickInsideMenu && !isClickOnButton) {
-    menu.classList.remove('open'); // Закрываем меню, если клик был вне его
-    pageContentHeader.style.filter = '';
-    pageContentMain.style.filter = '';
-  }
-  if (isClickOnButton) {
-    menu.classList.remove('open'); // Закрываем меню, если клик был на кнопке "закрыть"
-    pageContentHeader.style.filter = '';
-    pageContentMain.style.filter = '';
-  }
-});
 const swiper = new Swiper('.swiper', {
   loop: true,
   pagination: {
@@ -21030,18 +21003,15 @@ const main_button = document.querySelector('.toggle-button'); //вызов че�
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 const main_image = document.querySelector('.expand');
 
-// Добавляем обработчик клика
+// обработчик клика
 main_button.addEventListener('click', () => {
-  // Переключаем класс expanded
   swiperWrapper.classList.toggle('expanded');
-
-  // Меняем текст кнопки в зависимости от состояния
   if (swiperWrapper.classList.contains('expanded')) {
     main_button.textContent = 'Скрыть';
-    main_image.src = './img/expand_.svg'; // Новый путь к рисунку
+    main_image.src = './img/expand_.svg';
   } else {
     main_button.textContent = 'Показать все';
-    main_image.src = './img/expand.svg'; // Старый путь
+    main_image.src = './img/expand.svg';
   }
 });
 const buttonText = document.querySelector('.text__next');
@@ -21051,10 +21021,10 @@ buttonText.addEventListener('click', () => {
   textContainer.classList.toggle('expanded');
   if (textContainer.classList.contains('expanded')) {
     buttonText.textContent = 'Скрыть';
-    imageText.src = './img/expand_.svg'; // Новый путь к рисунку
+    imageText.src = './img/expand_.svg';
   } else {
     buttonText.textContent = 'Читать далее';
-    imageText.src = './img/expand.svg'; // Старый путь
+    imageText.src = './img/expand.svg';
   }
 });
 
@@ -21072,16 +21042,49 @@ buttonVid.addEventListener('click', () => {
     imageVid.src = './img/expand.svg';
   }
 });
+const menuButton = document.querySelector('.button--menu');
+const menu = document.querySelector('.mobile__menu');
+const menuButtonClose = document.querySelector('.burger');
+const pageContentHeader = document.querySelector('header');
+const pageContentMain = document.querySelector('main');
 const menuButtonCall = document.querySelector(".contact__chat");
 const menuFeedback = document.querySelector(".feedback__button");
 const menuButtonCloseFeedback = document.querySelector('.feedback__burger');
+const menuButtonCallHeader = document.querySelector(".button--chat");
 const menuButtonOrderCall = document.querySelector(".contact__cel-phone");
 const menuFeedbackOrderCall = document.querySelector(".feedback__button--order-call");
 const menuButtonCloseFeedbackCall = document.querySelector('.feedback__burger--order-call');
+const menuButtonOrderCallHeader = document.querySelector(".button--call");
+menuButton.addEventListener('click', event => {
+  event.stopPropagation();
+  menu.classList.toggle('open');
+  pageContentHeader.style.filter = 'blur(5px)'; //Размытость
+  pageContentMain.style.filter = 'blur(5px)';
+});
+document.addEventListener('click', event => {
+  const isClickInsideMenu = menu.contains(event.target); // Проверяем, было ли нажатие внутри меню
+  const isClickOnButton = menuButtonClose.contains(event.target); // Или на кнопке
+
+  const isClickInsideFeedback = menuFeedback.contains(event.target);
+  const isClickInsideOrderCall = menuFeedbackOrderCall.contains(event.target);
+  const isClickOnButtonCloseFeedback = menuButtonCloseFeedback.contains(event.target);
+  const isClickOnButtonCloseFeedbackCall = menuButtonCloseFeedbackCall.contains(event.target);
+  if (!isClickInsideMenu && !isClickInsideFeedback && !isClickInsideOrderCall && !isClickOnButton) {
+    menu.classList.remove('open');
+    pageContentHeader.style.filter = '';
+    pageContentMain.style.filter = '';
+  }
+  if (isClickOnButton || isClickOnButtonCloseFeedback || isClickOnButtonCloseFeedbackCal) {
+    menu.classList.remove('open');
+    pageContentHeader.style.filter = '';
+    pageContentMain.style.filter = '';
+  }
+});
 menuButtonCall.addEventListener('click', event => {
   event.stopPropagation();
   menuFeedbackOrderCall.classList.remove("open");
   menuFeedback.classList.toggle('open'); // Переключение класса "open" у меню
+
   if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
     pageContentHeader.style.filter = 'blur(5px)';
     pageContentMain.style.filter = 'blur(5px)';
@@ -21090,18 +21093,14 @@ menuButtonCall.addEventListener('click', event => {
     pageContentMain.style.filter = '';
   }
 });
-document.addEventListener('click', event => {
-  const isClickInsideMenu = menuFeedback.contains(event.target);
-  const isClickOnButton = menuButtonCloseFeedback.contains(event.target);
-  if (isClickInsideMenu && !isClickOnButton) {
-    menuFeedback.classList.remove('open');
-    menuFeedbackOrderCall.classList.remove("open");
-    pageContentHeader.style.filter = '';
-    pageContentMain.style.filter = '';
-  }
-  if (isClickOnButton) {
-    menuFeedback.classList.remove('open');
-    menuFeedbackOrderCall.classList.remove("open");
+menuButtonCallHeader.addEventListener('click', event => {
+  event.stopPropagation();
+  menuFeedbackOrderCall.classList.remove("open");
+  menuFeedback.classList.toggle('open');
+  if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
+    pageContentHeader.style.filter = 'blur(5px)';
+    pageContentMain.style.filter = 'blur(5px)';
+  } else {
     pageContentHeader.style.filter = '';
     pageContentMain.style.filter = '';
   }
@@ -21118,19 +21117,40 @@ menuButtonOrderCall.addEventListener('click', event => {
     pageContentMain.style.filter = '';
   }
 });
-document.addEventListener('click', event => {
-  const isClickInsideMenuOrderCall = menuFeedbackOrderCall.contains(event.target);
-  const isClickOnButtonOrderCall = menuButtonCloseFeedbackCall.contains(event.target);
-  if (!isClickInsideMenuOrderCall && !isClickOnButtonOrderCall) {
-    menuFeedbackOrderCall.classList.remove('open');
-    menuFeedback.classList.remove('open');
+menuButtonOrderCallHeader.addEventListener('click', event => {
+  event.stopPropagation();
+  menuFeedbackOrderCall.classList.toggle('open');
+  menuFeedback.classList.remove('open');
+  if (menuFeedback.classList.contains("open") || menuFeedbackOrderCall.classList.contains("open")) {
+    pageContentHeader.style.filter = 'blur(5px)';
+    pageContentMain.style.filter = 'blur(5px)';
+  } else {
     pageContentHeader.style.filter = '';
     pageContentMain.style.filter = '';
   }
-  if (isClickOnButtonOrderCall) {
-    menuFeedbackOrderCall.classList.remove('open');
+});
+document.addEventListener('click', event => {
+  const isClickInsideMenuFeedback = menuFeedback.contains(event.target);
+  const isClickInsideMenuFeedbackOrderCall = menuFeedbackOrderCall.contains(event.target);
+  const isClickOnButtonCloseFeedback = menuButtonCloseFeedback.contains(event.target);
+  const isClickOnButtonCloseFeedbackCall = menuButtonCloseFeedbackCall.contains(event.target);
+  const isClickOnFeedbackButton = event.target.closest('.feedback__button');
+  const isClickOnOrderCallButton = event.target.closest('.feedback__button--order-call');
+  if (!isClickInsideMenuFeedback && !isClickInsideMenuFeedbackOrderCall) {
     menuFeedback.classList.remove('open');
+  }
+  if (!isClickInsideMenuFeedbackOrderCall && !isClickInsideMenuFeedback) {
+    menuFeedbackOrderCall.classList.remove('open');
+  }
+  if (isClickOnButtonCloseFeedback) {
+    menuFeedback.classList.remove('open');
+  }
+  if (isClickOnButtonCloseFeedbackCall) {
+    menuFeedbackOrderCall.classList.remove('open');
+  }
+  if (!menuFeedback.classList.contains("open") && !menuFeedbackOrderCall.classList.contains("open")) {
     pageContentHeader.style.filter = '';
+    pageContentMain.style.filter = '';
   }
 });
 // EXTERNAL MODULE: ./src/js/swiper-bundle.js

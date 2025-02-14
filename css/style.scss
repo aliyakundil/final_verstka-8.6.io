@@ -1,5 +1,5 @@
-@import 'style.css';
-@import 'adaptive.css';
+// @import 'style.css';
+// @import 'adaptive.css';
 @import 'swiper-bundle.css';
 
 $primary-color-border: #D9FFF5;
@@ -172,12 +172,12 @@ aside {
 
   position: fixed;
   top: 0;
-  left: -320px; /* Скрыть меню за пределами экрана */
+  left: -320px; 
   width: 320px;
   height: 100%;
   background-color: white;
   overflow: hidden;
-  transition: left 0.3s ease-in-out; /* Анимация выдвижения */
+  transition: left 0.3s ease-in-out; 
 }
 
 .icon:hover {
@@ -292,7 +292,7 @@ aside {
 }
 
 .mobile__menu.open {
-  left: 0; /* Меню выдвигается на экран */
+  left: 0; 
 }
 
 
@@ -310,6 +310,7 @@ header, main {
   font-size: 16px;
   line-height: 24px;
   color: #7E7E82;
+  padding: 20px 0 20px 0;
 }
 
 .title_price {
@@ -329,20 +330,25 @@ header, main {
 }
 
 .swiper {
-  padding-top: 20px;
-  height: 200px;
   width: auto;
 }
 
-.swiper-slide {
-  flex-shrink: 0;
-  width: auto; 
+.swiper--remont {
+  height: 200px;
+}
+
+.swiper--remont-technique {
+  height: 280px;
+}
+
+.swiper--price {
+  height: 300px;
 }
 
 .toggle-button {
   all: unset; /* Сбрасывает все стандартные стили элемента */
   cursor: pointer; /* Указатель мыши при наведении */
-  font-size: 16px; /* Размер текста */
+  font-size: 16px; 
 }
 
 .price-button {
@@ -358,10 +364,6 @@ header, main {
   color: #7E7E82;
   font-weight: bold;
 }
-
-// .swiper-pagination {
-//   padding-top: 50px;
-// }
 
 .price_text {
   margin: 0;
@@ -390,7 +392,6 @@ header, main {
 .feedback__header {
   margin: 5% 0 0 5%;
   display: flex;
-  /* justify-content: flex-end; */
 }
 
 .feedback__button {
@@ -429,7 +430,6 @@ header, main {
 }
 
 input {
-  /* width: 288px; */
   width: 288px;
   height: 48px;
   font-family: 'TT Lakes Regular', Arial, sans-serif;
@@ -506,7 +506,11 @@ header {
   }
 
   main {
-    padding: 20px;
+    padding: 0, 20px,  20px,  20px;
+  }
+
+  .main__title-name {
+      margin-top: 0;
   }
   
   .main__menu {
@@ -698,10 +702,8 @@ header {
   .main__menu {
     display: flex;
     flex-direction: column;
-    // width: 222px;
-    // padding-bottom: 20px;
     justify-content: space-between;
-    height: 1000%;
+    height: 100%;
   }
 
   .main__text {
