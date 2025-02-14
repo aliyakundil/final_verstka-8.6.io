@@ -1,5 +1,5 @@
-@import 'style.css';
-@import 'adaptive.css';
+// @import 'style.css';
+// @import 'adaptive.css';
 @import 'swiper-bundle.css';
 
 $primary-color-border: #D9FFF5;
@@ -172,12 +172,12 @@ aside {
 
   position: fixed;
   top: 0;
-  left: -320px; /* Скрыть меню за пределами экрана */
+  left: -320px; 
   width: 320px;
   height: 100%;
   background-color: white;
   overflow: hidden;
-  transition: left 0.3s ease-in-out; /* Анимация выдвижения */
+  transition: left 0.3s ease-in-out; 
 }
 
 .icon:hover {
@@ -292,7 +292,7 @@ aside {
 }
 
 .mobile__menu.open {
-  left: 0; /* Меню выдвигается на экран */
+  left: 0; 
 }
 
 
@@ -316,6 +316,7 @@ header, main {
   font-size: 14px;
   line-height: 24px;
   color: #7E7E82;
+  margin-top: 50px;
 }
 
 .text_price {
@@ -329,7 +330,7 @@ header, main {
 }
 
 .swiper {
-  padding-top: 20px;
+  // padding-top: 20px;
   height: 200px;
   width: auto;
 }
@@ -342,7 +343,7 @@ header, main {
 .toggle-button {
   all: unset; /* Сбрасывает все стандартные стили элемента */
   cursor: pointer; /* Указатель мыши при наведении */
-  font-size: 16px; /* Размер текста */
+  font-size: 16px; 
 }
 
 .price-button {
@@ -359,9 +360,9 @@ header, main {
   font-weight: bold;
 }
 
-// .swiper-pagination {
-//   padding-top: 50px;
-// }
+.swiper--price .swiper-pagination {
+  margin-top: 150px;
+}
 
 .price_text {
   margin: 0;
@@ -506,7 +507,11 @@ header {
   }
 
   main {
-    padding: 20px;
+    padding: 0, 20px,  20px,  20px;
+  }
+
+  .main__title-name {
+      margin-top: 0;
   }
   
   .main__menu {
@@ -698,10 +703,8 @@ header {
   .main__menu {
     display: flex;
     flex-direction: column;
-    // width: 222px;
-    // padding-bottom: 20px;
     justify-content: space-between;
-    height: 1000%;
+    height: 100%;
   }
 
   .main__text {
