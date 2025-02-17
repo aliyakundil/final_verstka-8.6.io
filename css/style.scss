@@ -1,5 +1,3 @@
-// @import 'style.css';
-// @import 'adaptive.css';
 @import 'swiper-bundle.css';
 
 $primary-color-border: #D9FFF5;
@@ -100,7 +98,7 @@ header {
 }
 
 .menu::-webkit-scrollbar {
-  display: none; /* Для Chrome, Safari и Edge */
+  display: none;
 }
 
 .main__item {
@@ -118,8 +116,8 @@ header {
 
 .main__text {
   padding-left: 5%;
-  max-height: 90px; /* Ограничивает высоту */
-  overflow: hidden; /* Скрывает текст, выходящий за пределы */
+  max-height: 90px; 
+  overflow: hidden; 
   text-overflow: ellipsis; /* Добавляет "..." для обрезанного текста */
   margin-top: 30px;
 }
@@ -346,8 +344,8 @@ header, main {
 }
 
 .toggle-button {
-  all: unset; /* Сбрасывает все стандартные стили элемента */
-  cursor: pointer; /* Указатель мыши при наведении */
+  all: unset; 
+  cursor: pointer; 
   font-size: 16px; 
 }
 
@@ -440,8 +438,8 @@ input {
 
 .feedback__form--message {
   height: 118px;
-  text-align: start; /* Выравниваем текст по левому верхнему краю */
-  padding-top: 15px; /* Смещаем текст вверх */
+  text-align: start; 
+  padding-top: 15px; 
 }
 
 .feedback__instruction {
@@ -681,7 +679,7 @@ header {
   }
 
   main {
-      margin-left: 280px; /* Отступ слева, чтобы контент не перекрывал aside */
+      margin-left: 280px; 
       padding: 20px;
   }
 
